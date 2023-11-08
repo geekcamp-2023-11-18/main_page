@@ -12,3 +12,8 @@
     width: 100%;
     height: 100%;
 }
+
+.recording-video{
+    position: absolute;
+    top: 70px;
+}

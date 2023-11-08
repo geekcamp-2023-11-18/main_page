@@ -14,7 +14,7 @@ function recording() {
   return (
     <div className="recording-main">
         <img src={sky} alt="sky" className="recording-img"/>
-        <video id="video" autoPlay></video>
+        <video className="recording-video" id="video" autoPlay></video>
     </div>
   );
 }
