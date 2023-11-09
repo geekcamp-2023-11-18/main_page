@@ -9,9 +9,10 @@ let button = tetsuya;
 let changer = 0;
 
 function recording() {
-  const [background, setBackground] = useState(sky);
+  const [noon, isNoon] = useState(true);
   const [button, setButton] = useState(tetsuya);
 
+  // カメラ起動
   window.onload = function () {
     var video = document.getElementById("video");
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
@@ -24,21 +25,32 @@ function recording() {
     }
   };
 
+  // ボタンを押したら昼夜が切り替わる
   function change() {
-    if (changer === 0) {
-      changer = 1;
-      setBackground(nightsky);
-      setButton(otsu);
-    } else {
-      changer = 0;
-      setBackground(sky);
-      setButton(tetsuya);
-    }
+    isNoon(!noon);
+
+     if (changer === 0) {
+       changer = 1;
+       setButton(otsu);
+     } else {
+       changer = 0;
+       setButton(tetsuya);
+     }
   }
 
+  //HTML
   return (
     <div className="recording-main">
-      <img src={background} alt="sky" className="recording-img" />
+      <img
+        src={sky}
+        alt="sky"
+        className={noon ? "recordings-img" : "recordingsNight-img"}
+      />
+      <img
+        src={nightsky}
+        alt="sky"
+        className={!noon ? "recordings-img" : "recordingsNight-img"}
+      />
       <div className="video-position-div">
         <div className="video-div">
           <video id="video" autoPlay className="video"></video>
