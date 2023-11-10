@@ -4,6 +4,8 @@ import sky from "../imgs/sky.jpg";
 import nightsky from "../imgs/nightsky.jpg";
 import tetsuya from "../imgs/blueButton.png";
 import otsu from "../imgs/redButton.png";
+//import useSound from "use-sound"; いらなくなった
+import soundDoor from "../musics/doorOpen.mp3";
 
 let button = tetsuya;
 let changer = 0;
@@ -11,6 +13,7 @@ let changer = 0;
 function recording() {
   const [noon, isNoon] = useState(true);
   const [button, setButton] = useState(tetsuya);
+  const oto = new Audio(soundDoor);
 
   // カメラ起動
   window.onload = function () {
@@ -28,6 +31,8 @@ function recording() {
   // ボタンを押したら昼夜が切り替わる
   function change() {
     isNoon(!noon);
+    oto.play();
+    //useSound(soundDoor); いらなくなった
 
      if (changer === 0) {
        changer = 1;
