@@ -16,7 +16,6 @@ function library() {
 			<img src={nightsky} className='library_background'></img>
 			{!expension ?
 				<div>
-
 					<ul>
 						<li><Archives /></li>
 						<li><Stream onChildEvent={changeWindow} /></li>
